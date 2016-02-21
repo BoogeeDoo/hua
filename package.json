@@ -1,0 +1,36 @@
+{
+  "name": "huaming",
+  "version": "1.0.0",
+  "description": "Make you easy to name a alibaba hua-name.",
+  "main": "index.js",
+  "bin": {
+    "huaming": "hua.js"
+  },
+  "dependencies": {
+    "chinese-random-name": "^0.0.5",
+    "colorful": "^2.1.0",
+    "colors": "^1.1.2",
+    "debug": "^2.2.0",
+    "is-chinese": "^1.2.3",
+    "nomnom": "^1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XadillaX/hua.git"
+  },
+  "keywords": [
+    "huaming",
+    "naming",
+    "alibaba"
+  ],
+  "author": "XadillaX <i@2333.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XadillaX/hua/issues"
+  },
+  "homepage": "https://github.com/XadillaX/hua#readme"
+}
