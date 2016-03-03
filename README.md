@@ -1,6 +1,6 @@
 # Huaming
 
-Make yourself easy to pick an alibaba flavor name(aka. 花名).
+:hibiscus: Make yourself easy to pick an alibaba flavor name (aka. 花名).
 
 > For my friend [HiccupLong](https://github.com/wxlfight) to join Mogujie.
 
