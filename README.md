@@ -1,8 +1,8 @@
 # Huaming
 
-Make you easy to name a alibaba hua-name.
+:hibiscus: Make yourself easy to pick an alibaba flavor name (aka. 花名).
 
-> For my friend [HiccupLong](https://github.com/wxlfight) to Mogujie.
+> For my friend [HiccupLong](https://github.com/wxlfight) to join Mogujie.
 
 ## Installation
 
