@@ -30,6 +30,7 @@ Options:
 -s SUFFIX, --suffix SUFFIX          to specify a suffix.
 -5 WUXING, --five-elements WUXING   the file elements (Wuxing) of huaming.
 -c COUNT, --count COUNT             the count of huaming  [10]
+-i SOURCE, --source SOURCE          the source of huaming, you can choose `dict` or `tangshi`. If you choose `tangshi`, only `count` will effected  [dict]
 ```
 
 ### Example
@@ -73,11 +74,26 @@ $ hua --five-elements 金水
  * 俗封
  * 绸娥
  * 瑞淦
+
+$ hua -i tangshi
+
+ * 总是 -- 李白 《子夜四时歌［秋歌］》
+ * 夜送 -- 白居易 《琵琶行并序》
+ * 光集 -- 马戴 《楚江怀古》
+ * 今成 -- 李白 《长相思二首之二》
+ * 畏蒺 -- 王维 《老将行》
+ * 客愁 -- 孟浩然 《宿建德江》
+ * 盈尺 -- 李白 《蜀道难》
+ * 一树 -- 李商隐 《蝉》
+ * 方悟 -- 王维 《西施咏》
+ * 方来 -- 韦应物 《长安遇冯著》
 ```
 
 ## Library
 
 If you want use `huaming` as an library, you may read this document.
+
+### Hua
 
 ```javascript
 const Hua = require("huaming");
@@ -106,6 +122,48 @@ let results = huaming.generate();
 
 // returns `options.count` random huaming(s).
 ```
+
+### HuaTangshi
+
+```javascript
+const Hua = require("huaming");
+const huaming = new Hua.Tangshi(options);
+```
+
+> `options` is an object that same as CLI mode.
+>
+> + `options.count`
+
+### init
+
+```javascript
+huaming.init(function(err) {
+    // do something...
+});
+```
+
+### generateOne
+
+```javascript
+huaming.generateOne(function(err, hua, meta) {
+    // do something...
+});
+```
+
+> **Note:** You must call `init` function before using this function.
+
+### generate
+
+```javascript
+huaming.generate(function(err, names) {
+    // names -> [
+    //     { name: huaming1, meta: {} }
+    //     { name: huaming2, meta: {} }
+    // ]
+});
+```
+
+> **Note:** You must call `init` function before using this function.
 
 ## Contribution
 

@@ -51,7 +51,7 @@ switch(opts.source) {
             hua.generate(function(err, names) {
                 if(err) console.error(err);
                 for(var i = 0; i < names.length; i++) {
-                    console.log(names[i].name, "--", names[i].meta.author, "《" + names[i].meta.title + "》");
+                    console.log(" *", names[i].name, "--", names[i].meta.author, "《" + names[i].meta.title + "》");
                 }
             });
         });
