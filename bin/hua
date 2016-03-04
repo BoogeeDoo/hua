@@ -33,34 +33,64 @@ var opts = require("nomnom")
         metavar: "COUNT",
         default: 10
     })
+    .option("source", {
+        abbr: "i",
+        help: "the source of huaming, you can choose `dict` or `tangshi`. If you choose `tangshi`, only `count` will effected",
+        metavar: "SOURCE",
+        default: "dict",
+        choices: [ "dict", "tangshi" ]
+    })
     .parse();
 
-var hua = new Hua(opts);
-var result = hua.generate();
+switch(opts.source) {
+    case "tangshi": {
+        var hua = new Hua.Tangshi(opts);
+        hua.init(function(err) {
+            if(err) console.error(err);
 
-result = result.map(function(name) {
-    var withColor = "";
-
-    for(var i = 0; i < 2; i++) {
-        for(var j = 0; j < wuxing.length; j++) {
-            var wx = wuxing[j];
-            if(wx === " ") {
-                withColor += name[i];
-                break;
-            }
-
-            if(dict[wx].indexOf(name[i]) !== -1) {
-                var color = new Color(name[i]);
-                color.fgcolor = definedColors[j];
-                withColor += color.toString();
-                break;
-            }
-        }
+            hua.generate(function(err, names) {
+                if(err) console.error(err);
+                for(var i = 0; i < names.length; i++) {
+                    console.log(names[i].name, "--", names[i].meta.author, "《" + names[i].meta.title + "》");
+                }
+            });
+        });
+        break;
     }
 
-    return withColor;
-});
+    case "dict": {
+        var hua = new Hua(opts);
+        var result = hua.generate();
+        
+        result = result.map(function(name) {
+            var withColor = "";
+        
+            for(var i = 0; i < 2; i++) {
+                for(var j = 0; j < wuxing.length; j++) {
+                    var wx = wuxing[j];
+                    if(wx === " ") {
+                        withColor += name[i];
+                        break;
+                    }
+        
+                    if(dict[wx].indexOf(name[i]) !== -1) {
+                        var color = new Color(name[i]);
+                        color.fgcolor = definedColors[j];
+                        withColor += color.toString();
+                        break;
+                    }
+                }
+            }
+        
+            return withColor;
+        });
+        
+        for(var i = 0; i < result.length; i++) {
+            console.log(" * " + result[i]);
+        }
 
-for(var i = 0; i < result.length; i++) {
-    console.log(" * " + result[i]);
+        break;
+    }
+
+    default: break;
 }

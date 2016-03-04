@@ -7,3 +7,4 @@
 "use strict";
 
 module.exports = require("./lib/hua");
+module.exports.Tangshi = require("./lib/hua_tangshi");
