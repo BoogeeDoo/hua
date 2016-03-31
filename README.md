@@ -75,18 +75,28 @@ $ hua --five-elements 金水
  * 绸娥
  * 瑞淦
 
-$ hua -i tangshi
+$ hua -i tangshi -c 20
 
- * 总是 -- 李白 《子夜四时歌［秋歌］》
- * 夜送 -- 白居易 《琵琶行并序》
- * 光集 -- 马戴 《楚江怀古》
- * 今成 -- 李白 《长相思二首之二》
- * 畏蒺 -- 王维 《老将行》
- * 客愁 -- 孟浩然 《宿建德江》
- * 盈尺 -- 李白 《蜀道难》
- * 一树 -- 李商隐 《蝉》
- * 方悟 -- 王维 《西施咏》
- * 方来 -- 韦应物 《长安遇冯著》
+ * 忽逢 -- 孟浩然 《清明日宴梅道士房》
+ * 所偶 -- 綦毋潜 《春泛若耶溪》
+ * 秦关 -- 韦应物 《夕次盱眙县》
+ * 无萤 -- 李商隐 《隋宫》
+ * 罗衣 -- 薛逢 《宫词》
+ * 莺啼 -- 杜甫 《别房太尉墓》
+ * 凝香 -- 李白 《清平调三首之二》
+ * 泪不 -- 岑参 《逢入京使》
+ * 上来 -- 李白 《将进酒》
+ * 五马 -- 李白 《子夜四时歌》
+ * 日登 -- 李颀 《古从军行》
+ * 一灯 -- 钱起 《送僧归日本》
+ * 暮寒 -- 祖咏 《终南望馀雪》
+ * 望秋 -- 李白 《玉阶怨》
+ * 景物 -- 杜甫 《哀江头》
+ * 巴人 -- 王维 《送梓州李使君》
+ * 人事 -- 杜甫 《野望》
+ * 门今 -- 杜甫 《客至》
+ * 间住 -- 刘长卿 《送上人》
+ * 岂伊 -- 张九龄 《感遇四首之四》
 ```
 
 ## Library
@@ -134,20 +144,13 @@ const huaming = new Hua.Tangshi(options);
 >
 > + `options.count`
 
-### init
-
-```javascript
-huaming.init(function(err) {
-    // do something...
-});
-```
-
 ### generateOne
 
 ```javascript
-huaming.generateOne(function(err, hua, meta) {
-    // do something...
-});
+var result = huaming.generateOne();
+
+// result -> 无萤
+// result._meta -> { author: '李商隐', title: '隋宫' }
 ```
 
 > **Note:** You must call `init` function before using this function.
@@ -155,12 +158,9 @@ huaming.generateOne(function(err, hua, meta) {
 ### generate
 
 ```javascript
-huaming.generate(function(err, names) {
-    // names -> [
-    //     { name: huaming1, meta: {} }
-    //     { name: huaming2, meta: {} }
-    // ]
-});
+huaming.generate();
+
+// returns `options.count` random huaming(s)
 ```
 
 > **Note:** You must call `init` function before using this function.
