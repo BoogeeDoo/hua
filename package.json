@@ -7,15 +7,12 @@
     "hua": "bin/hua"
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
     "chinese-random-name": "^0.0.5",
     "colorful": "^2.1.0",
     "debug": "^2.2.0",
     "is-chinese": "^1.2.3",
     "lodash": "^4.6.1",
-    "nomnom": "^1.8.1",
-    "scarlet-task": "^0.1.0",
-    "spidex": "^2.1.1"
+    "nomnom": "^1.8.1"
   },
   "devDependencies": {},
   "scripts": {

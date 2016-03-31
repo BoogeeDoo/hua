@@ -45,16 +45,11 @@ var opts = require("nomnom")
 switch(opts.source) {
     case "tangshi": {
         var hua = new Hua.Tangshi(opts);
-        hua.init(function(err) {
-            if(err) console.error(err);
+        var result = hua.generate();
 
-            hua.generate(function(err, names) {
-                if(err) console.error(err);
-                for(var i = 0; i < names.length; i++) {
-                    console.log(" *", names[i].name, "--", names[i].meta.author, "《" + names[i].meta.title + "》");
-                }
-            });
-        });
+        for(var i = 0; i < result.length; i++) {
+            console.log(" *", result[i], "--", result[i]._meta.author, "《" + result[i]._meta.title + "》");
+        }
         break;
     }
 
