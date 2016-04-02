@@ -1,6 +1,6 @@
 {
   "name": "huaming",
-  "version": "2.0.0-alpha1",
+  "version": "2.0.0",
   "description": "Make you easy to name a alibaba hua-name.",
   "main": "index.js",
   "bin": {
