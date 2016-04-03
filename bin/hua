@@ -35,10 +35,10 @@ var opts = require("nomnom")
     })
     .option("source", {
         abbr: "i",
-        help: "the source of huaming, you can choose `dict` or `tangshi`. If you choose `tangshi`, only `count` will effected",
+        help: "the source of huaming, you can choose `[dict | tangshi | songci]`. If you choose `[tangshi | songci]`, only `count` will effected",
         metavar: "SOURCE",
         default: "dict",
-        choices: [ "dict", "tangshi" ]
+        choices: [ "dict", "tangshi", "songci"]
     })
     .parse();
 
@@ -53,13 +53,23 @@ switch(opts.source) {
         break;
     }
 
+    case "songci": {
+        var hua = new Hua.Songci(opts);
+        var result = hua.generate();
+
+        for(var i = 0; i < result.length; i++) {
+            console.log(" *", result[i], "--", result[i]._meta.author, "《" + result[i]._meta.title + "》");
+        }
+        break;
+    }
+
     case "dict": {
         var hua = new Hua(opts);
         var result = hua.generate();
-        
+
         result = result.map(function(name) {
             var withColor = "";
-        
+
             for(var i = 0; i < 2; i++) {
                 for(var j = 0; j < wuxing.length; j++) {
                     var wx = wuxing[j];
@@ -67,7 +77,7 @@ switch(opts.source) {
                         withColor += name[i];
                         break;
                     }
-        
+
                     if(dict[wx].indexOf(name[i]) !== -1) {
                         var color = new Color(name[i]);
                         color.fgcolor = definedColors[j];
@@ -76,10 +86,10 @@ switch(opts.source) {
                     }
                 }
             }
-        
+
             return withColor;
         });
-        
+
         for(var i = 0; i < result.length; i++) {
             console.log(" * " + result[i]);
         }
