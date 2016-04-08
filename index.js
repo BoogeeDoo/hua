@@ -8,3 +8,4 @@
 
 module.exports = require("./lib/hua");
 module.exports.Tangshi = require("./lib/hua_tangshi");
+module.exports.Songci = require("./lib/hua_songci");
