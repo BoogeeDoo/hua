@@ -9,14 +9,14 @@
   "dependencies": {
     "chinese-random-name": "^0.0.5",
     "colorful": "^2.1.0",
+    "commander": "^2.9.0",
     "debug": "^2.2.0",
     "is-chinese": "^1.2.3",
-    "lodash": "^4.6.1",
-    "nomnom": "^1.8.1"
+    "lodash": "^4.6.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/tangshi.js"
   },
   "repository": {
     "type": "git",
