@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+"use strict";
+
+var path = require("path");
+
+var program = require("commander");
+
+var Hua = require("../").HuaSource;
+
+program
+    .option("-s, --source <name|path>", "specify a `huaming` dictionary, `tangshi`, `songci` or a path", "tangshi")
+    .option("-c, --count <count>", "the count of `huaming`", parseInt, 10)
+    .parse(process.argv);
+
+if(Hua.EXIST_SOURCE.indexOf(program.source) < 0) {
+    program.source = path.join(process.cwd(), program.source);
+}
+
+var hua = new Hua(program);
+var result = hua.generate();
+
+for(var i = 0; i < result.length; i++) {
+    console.log(" *", result[i], "--", result[i]._meta.author, "《" + result[i]._meta.title + "》");
+}

@@ -1,101 +1,16 @@
 #!/usr/bin/env node
 "use strict";
 
-var Color = require("colorful").Color;
-var Hua = require("../");
-var dict = require("chinese-random-name").names.dict;
+var program = require("commander");
 
-var wuxing = "金木水火土 ";
-var definedColors = [
-    220, 83, 26, 197, 59
-];
+program
+    .version(require("../package").version)
+    .usage("<command>")
+    .command("char", "generate `hua` from characters")
+    .command("dict", "grnerate `hua` from a specified dictionary");
 
-var opts = require("nomnom")
-    .script("hua")
-    .option("prefix", {
-        abbr: "p",
-        help: "to specify a prefix.",
-        metavar: "PREFIX"
-    })
-    .option("suffix", {
-        abbr: "s",
-        help: "to specify a suffix.",
-        metavar: "SUFFIX"
-    })
-    .option("five-elements", {
-        abbr: "5",
-        help: "the file elements (Wuxing) of huaming.",
-        metavar: "WUXING"
-    })
-    .option("count", {
-        abbr: "c",
-        help: "the count of huaming",
-        metavar: "COUNT",
-        default: 10
-    })
-    .option("source", {
-        abbr: "i",
-        help: "the source of huaming, you can choose `[dict | tangshi | songci]`. If you choose `[tangshi | songci]`, only `count` will effected",
-        metavar: "SOURCE",
-        default: "dict",
-        choices: [ "dict", "tangshi", "songci"]
-    })
-    .parse();
+program.parse(process.argv);
 
-switch(opts.source) {
-    case "tangshi": {
-        var hua = new Hua.Tangshi(opts);
-        var result = hua.generate();
-
-        for(var i = 0; i < result.length; i++) {
-            console.log(" *", result[i], "--", result[i]._meta.author, "《" + result[i]._meta.title + "》");
-        }
-        break;
-    }
-
-    case "songci": {
-        var hua = new Hua.Songci(opts);
-        var result = hua.generate();
-
-        for(var i = 0; i < result.length; i++) {
-            console.log(" *", result[i], "--", result[i]._meta.author, "《" + result[i]._meta.title + "》");
-        }
-        break;
-    }
-
-    case "dict": {
-        var hua = new Hua(opts);
-        var result = hua.generate();
-
-        result = result.map(function(name) {
-            var withColor = "";
-
-            for(var i = 0; i < 2; i++) {
-                for(var j = 0; j < wuxing.length; j++) {
-                    var wx = wuxing[j];
-                    if(wx === " ") {
-                        withColor += name[i];
-                        break;
-                    }
-
-                    if(dict[wx].indexOf(name[i]) !== -1) {
-                        var color = new Color(name[i]);
-                        color.fgcolor = definedColors[j];
-                        withColor += color.toString();
-                        break;
-                    }
-                }
-            }
-
-            return withColor;
-        });
-
-        for(var i = 0; i < result.length; i++) {
-            console.log(" * " + result[i]);
-        }
-
-        break;
-    }
-
-    default: break;
+if(!program.args.length) {
+    require("./hua-char");
 }

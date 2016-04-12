@@ -6,6 +6,5 @@
  */
 "use strict";
 
-module.exports = require("./lib/hua");
-module.exports.Tangshi = require("./lib/hua_tangshi");
-module.exports.Songci = require("./lib/hua_songci");
+module.exports.HuaChar = require("./lib/hua_char");
+module.exports.HuaSource = require("./lib/hua_source");
