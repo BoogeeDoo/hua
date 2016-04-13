@@ -23,90 +23,140 @@ If you installed it as a CLI in global, you may use it like this:
 ```sh
 $ hua --help
 
-Usage: hua [options]
+  Usage: hua <command>
 
-Options:
--p PREFIX, --prefix PREFIX          to specify a prefix.
--s SUFFIX, --suffix SUFFIX          to specify a suffix.
--5 WUXING, --five-elements WUXING   the file elements (Wuxing) of huaming.
--c COUNT, --count COUNT             the count of huaming  [10]
--i SOURCE, --source SOURCE          the source of huaming, you can choose `dict` or `tangshi`. If you choose `tangshi`, only `count` will effected  [dict]
+
+  Commands:
+
+    char        generate `hua` from characters
+    dict        grnerate `hua` from a specified dictionary
+    help [cmd]  display help for [cmd]
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
+$ hua char --help
+
+  Usage: hua-char [options]
+
+  Options:
+
+    -h, --help                output usage information
+    -p, --prefix <prefix>     specify a `huaming` prefix
+    -s, --suffix <suffix>     specify a `huaming` suffix
+    -5, --five-elements <wx>  the five elements (Wuxing) of `huaming`
+    -c, --count <count>       the count of `huaming`
+
+$ hua dict --help
+
+  Usage: hua-dict [options]
+
+  Options:
+
+    -h, --help                output usage information
+    -s, --source <name|path>  specify a `huaming` dictionary, `tangshi`, `songci` or a path
+    -c, --count <count>       the count of `huaming`
 ```
 
 ### Example
 
 ```sh
-$ hua
+$ hua char
 
- * 彤摸
- * 豫墀
- * 趣工
- * 倚赚
- * 愁监
- * 竿铁
- * 错页
- * 洪讲
- * 顶馥
- * 右虹
+ * 瑚阜
+ * 督仓
+ * 淞委
+ * 肠眇
+ * 艳惜
+ * 翎融
+ * 蜜鸳
+ * 钰佣
+ * 住丹
+ * 况始
  
-$ hua --prefix 龙
+$ hua char --prefix 龙
 
- * 龙幼
- * 龙巡
- * 龙躬
- * 龙仇
- * 龙锤
- * 龙镒
- * 龙拾
- * 龙央
- * 龙些
- * 龙悠
+ * 龙盘
+ * 龙穰
+ * 龙棚
+ * 龙疑
+ * 龙结
+ * 龙荃
+ * 龙堂
+ * 龙贻
+ * 龙聊
+ * 龙凯
 
-$ hua --five-elements 金水
+$ hua char --five-elements 金水
 
- * 倩娥
- * 雀效
- * 黍棓
- * 姹溶
- * 馨沙
- * 宫闲
- * 裕混
- * 俗封
- * 绸娥
- * 瑞淦
+ * 入没
+ * 夙微
+ * 甯包
+ * 措溪
+ * 赦风
+ * 倩步
+ * 镁恒
+ * 始绵
+ * 孜清
+ * 窗讹
 
-$ hua -i tangshi -c 20
+$ hua dict -s tangshi -c 20
 
- * 忽逢 -- 孟浩然 《清明日宴梅道士房》
- * 所偶 -- 綦毋潜 《春泛若耶溪》
- * 秦关 -- 韦应物 《夕次盱眙县》
- * 无萤 -- 李商隐 《隋宫》
- * 罗衣 -- 薛逢 《宫词》
- * 莺啼 -- 杜甫 《别房太尉墓》
- * 凝香 -- 李白 《清平调三首之二》
- * 泪不 -- 岑参 《逢入京使》
- * 上来 -- 李白 《将进酒》
- * 五马 -- 李白 《子夜四时歌》
- * 日登 -- 李颀 《古从军行》
- * 一灯 -- 钱起 《送僧归日本》
- * 暮寒 -- 祖咏 《终南望馀雪》
- * 望秋 -- 李白 《玉阶怨》
- * 景物 -- 杜甫 《哀江头》
- * 巴人 -- 王维 《送梓州李使君》
- * 人事 -- 杜甫 《野望》
- * 门今 -- 杜甫 《客至》
- * 间住 -- 刘长卿 《送上人》
- * 岂伊 -- 张九龄 《感遇四首之四》
+ * 野幕 -- 卢纶 《塞下曲四首之四》
+ * 朝朝 -- 孟浩然 《留别王侍御维》
+ * 禅寂 -- 钱起 《送僧归日本》
+ * 秦地 -- 李白 《子夜四时歌》
+ * 飞高 -- 卢纶 《塞下曲四首之三》
+ * 鼓鼙 -- 卢纶 《晚次鄂州》
+ * 秋来 -- 僧皎然 《寻陆鸿渐不遇》
+ * 夕阳 -- 孟浩然 《宿业师山房待丁大不至》
+ * 鸟惊 -- 杜甫 《春望》
+ * 晚来 -- 韦应物 《滁州西涧》
+ * 已春 -- 韦应物 《长安遇冯著》
+ * 堪折 -- 杜秋娘 《金缕衣》
+ * 物守 -- 韩愈 《石鼓歌》
+ * 请奏 -- 李颀 《琴歌》
+ * 生晓 -- 李商隐 《锦瑟》
+ * 误妾 -- 李益 《江南曲》
+ * 帚平 -- 王昌龄 《长信怨》
+ * 归山 -- 裴迪 《送崔九》
+ * 野寺 -- 刘长卿 《秋日登吴公台上寺远眺》
+ * 宫妃 -- 王维 《西施咏》
+
+$ hua dict -s songci -c 20
+
+ * 初明 -- 晁补之 《浣溪沙（广陵被召留别）》
+ * 空锁 -- 邵 博 《念奴娇》
+ * 幽寻 -- 吕渭老 《如梦令》
+ * 经渭 -- 曹 勋 《竹马子（柳）》
+ * 紧离 -- 苏 轼 《江神子（冬景）》
+ * 晴风 -- 周邦彦 《一寸金（小石江路）》
+ * 娇后 -- 苏 轼 《鹧鸪天（陈公密出侍儿素娘，歌紫玉箫曲，劝老人酒。老人饮尽因为赋此词）》
+ * 食清 -- 卢祖皋 《西江月》
+ * 把破 -- 刘克庄 《贺新郎（九日）》
+ * 欲与 -- 刘辰翁 《摸鱼儿（甲午送春）》
+ * 看罗 -- 卢 炳 《念奴娇》
+ * 南极 -- 卫宗武 《金缕曲（寿南塘八月生朝）》
+ * 潮生 -- 陈 著 《如梦令（舟泊咸池）》
+ * 花稀 -- 晏几道 《更漏子》
+ * 亭别 -- 晏 殊 《踏莎行》
+ * 绿鞍 -- 利 登 《菩萨蛮》
+ * 燕子 -- 张 榘 《浪淘沙（再和）》
+ * 斜映 -- 王安中 《浣溪沙（柳州作）》
+ * 劳碌 -- 秦 观 《石州慢（九日）》
+ * 暗香 -- 刘 镇 《清平乐（赵围避暑）》
 ```
 
 ## Library
 
 If you want use `huaming` as an library, you may read this document.
 
-### Hua
+### HuaChar
 
 ```javascript
-const Hua = require("huaming");
+const Hua = require("huaming").HuaChar;
 const huaming = new Hua(options);
 ```
 
@@ -114,7 +164,7 @@ const huaming = new Hua(options);
 >
 > + `options.prefix`
 > + `options.suffix`
-> + `options["five-elements"]`
+> + `options.fiveElements`
 > + `options.count`
 
 ### generateOne
@@ -133,16 +183,17 @@ let results = huaming.generate();
 // returns `options.count` random huaming(s).
 ```
 
-### HuaTangshi
+### HuaSource
 
 ```javascript
-const Hua = require("huaming");
-const huaming = new Hua.Tangshi(options);
+const Hua = require("huaming").HuaSource;
+const huaming = new Hua(options);
 ```
 
 > `options` is an object that same as CLI mode.
 >
 > + `options.count`
+> + `options.source`: it can be `"tangshi"`, `"songci"`, a JSON module, or even a dictionary path
 
 ### generateOne
 
@@ -152,8 +203,6 @@ var result = huaming.generateOne();
 // result -> 无萤
 // result._meta -> { author: '李商隐', title: '隋宫' }
 ```
-
-> **Note:** You must call `init` function before using this function.
 
 ### generate
 
@@ -168,5 +217,11 @@ huaming.generate();
 ## Contribution
 
 You're welcome to make pull requests!
+
+Thanks to:
+
+- [Biangbiang](https://github.com/biangbiang)
+- [lisposter](https://github.com/lisposter)
+- [sallen450](https://github.com/sallen450)
 
 「雖然我覺得不怎麼可能有人會關注我」

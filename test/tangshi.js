@@ -6,11 +6,9 @@
  */
 "use strict";
 
-var Tangshi = require("../").Tangshi;
+var Tangshi = require("../").HuaSource;
 
-var tangshi = new Tangshi();
-tangshi.init(function() {
-    tangshi.generateOne(function(err, name, meta) {
-        console.log(name, "--", meta.author, "《" + meta.title + "》");
-    });
-});
+var tangshi = new Tangshi({ source: "tangshi" });
+var result = tangshi.generateOne();
+
+console.log(result, "--", result._meta.author, "《" + result._meta.title + "》");
