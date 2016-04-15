@@ -56,7 +56,7 @@ $ hua dict --help
   Options:
 
     -h, --help                output usage information
-    -s, --source <name|path>  specify a `huaming` dictionary, `tangshi`, `songci` or a path
+    -s, --source <name|path>  specify a `huaming` dictionary, `tangshi`, `chuci`, `songci` or a path
     -c, --count <count>       the count of `huaming`
 ```
 
@@ -193,7 +193,7 @@ const huaming = new Hua(options);
 > `options` is an object that same as CLI mode.
 >
 > + `options.count`
-> + `options.source`: it can be `"tangshi"`, `"songci"`, a JSON module, or even a dictionary path
+> + `options.source`: it can be `"tangshi"`, `"chuci"`, `"songci"`, a JSON module, or even a dictionary path
 
 ### generateOne
 

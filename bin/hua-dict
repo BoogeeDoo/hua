@@ -8,7 +8,7 @@ var program = require("commander");
 var Hua = require("../").HuaSource;
 
 program
-    .option("-s, --source <name|path>", "specify a `huaming` dictionary, `tangshi`, `songci` or a path", "tangshi")
+    .option("-s, --source <name|path>", "specify a `huaming` dictionary, `tangshi`, `chuci`, `songci` or a path", "tangshi")
     .option("-c, --count <count>", "the count of `huaming`", parseInt, 10)
     .parse(process.argv);
 
