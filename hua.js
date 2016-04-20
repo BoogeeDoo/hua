@@ -6,5 +6,5 @@
  */
 "use strict";
 
-module.exports.HuaChar = require("./lib/hua_char");
-module.exports.HuaSource = require("./lib/hua_source");
+exports.HuaChar = require("./lib/hua_char");
+exports.HuaSource = require("./lib/hua_source");

@@ -1,0 +1,22 @@
+{
+  "name": "huaming",
+  "description": "Make you easy to name a alibaba hua-name.",
+  "main": "hua.min.js",
+  "authors": [
+    "XadillaX <i@2333.moe>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "huaming",
+    "naming",
+    "alibaba"
+  ],
+  "homepage": "https://github.com/XadillaX/hua",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

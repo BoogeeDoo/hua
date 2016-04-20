@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>花名测试</title>
+</head>
+<body>
+    <ul id="names">
+    </ul>
+
+    <button id="refresh">刷新</button>
+
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <script src="../hua.min.js"></script>
+    <script>
+        $(function() {
+            gen();
+
+            $("#refresh").click(function() {
+                $("#names").text("");
+                gen();
+            });
+        });
+
+        function append(name, meta) {
+            $("#names").append("<li style=\"line-height: 23px;\"><strong>" + name + "<\/strong> - " + meta + "<\/li>");
+        }
+
+        function gen() {
+            var name;
+
+            name = new Hua.HuaChar();
+            append(name.generateOne(), "拼字");
+
+            var chuci = new Hua.HuaSource({ source: "chuci" });
+            name = chuci.generateOne();
+            append(name, name._meta.author + " - 《" + name._meta.title + "》 - 楚辞");
+
+            var shijing = new Hua.HuaSource({ source: "shijing" });
+            name = shijing.generateOne();
+            append(name, name._meta.author + " - 《" + name._meta.title + "》 - 诗经");
+
+            var songci = new Hua.HuaSource({ source: "songci" });
+            name = songci.generateOne();
+            append(name, name._meta.author + " - 《" + name._meta.title + "》 - 宋词");
+
+            var tangshi = new Hua.HuaSource({ source: "tangshi" });
+            name = tangshi.generateOne();
+            append(name, name._meta.author + " - 《" + name._meta.title + "》 - 唐诗");
+        }
+    </script>
+</body>
+</html>

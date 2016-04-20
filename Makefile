@@ -5,9 +5,9 @@ install:
 	@npm install
 
 build-dev: install
-	$(BROWSERIFY_PATH) hua.js -s hua -r ./dict/chuci.json \
-		-r ./dict/shijing.json -r ./dict/songci.json \
-		-r ./dict/tangshi.json > hua.min.js
+	@$(BROWSERIFY_PATH) -s Hua \
+		-r ./dict/chuci.json -r ./dict/shijing.json -r ./dict/songci.json -r ./dict/tangshi.json \
+		-r ./hua.js -o ./hua.min.js
 
 build: build-dev
 	@$(UGLIFYJS_PATH) hua.min.js -o hua.min.js --reserved "module,exports,hua" \
