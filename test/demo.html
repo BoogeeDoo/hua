@@ -9,9 +9,17 @@
     <button id="refresh">刷新</button>
 
     <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <script src="http://tool.chinaz.com/template/default/js/pinyin.js"></script>
     <script src="../hua.min.js"></script>
     <script>
+        var han = [];
+        var py = [];
         $(function() {
+            pydic.split(",").forEach(function(item) {
+                han.push(item.substr(0, 1));
+                py.push(item.substr(1));
+            });
+
             gen();
 
             $("#refresh").click(function() {
@@ -21,7 +29,18 @@
         });
 
         function append(name, meta) {
-            $("#names").append("<li style=\"line-height: 23px;\"><strong>" + name + "<\/strong> - " + meta + "<\/li>");
+            var pinyin = name.split("").map(function(char) {
+                var idx = han.indexOf(char);
+                if(idx >= 0) {
+                    return py[idx];
+                }
+
+                return "-"
+            }).join(" ");
+
+            $("#names").append(
+                "<li style=\"line-height: 23px;\"><strong>" +
+                name + " (" + pinyin + ")" + "<\/strong> - " + meta + "<\/li>");
         }
 
         function gen() {
