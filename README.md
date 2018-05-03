@@ -29,7 +29,7 @@ $ hua --help
   Commands:
 
     char        generate `hua` from characters
-    dict        grnerate `hua` from a specified dictionary
+    dict        generate `hua` from a specified dictionary
     help [cmd]  display help for [cmd]
 
   Options:
@@ -75,7 +75,7 @@ $ hua char
  * 钰佣
  * 住丹
  * 况始
- 
+
 $ hua char --prefix 龙
 
  * 龙盘
