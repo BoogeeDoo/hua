@@ -18,10 +18,12 @@
   },
   "devDependencies": {
     "browserify": "^13.0.0",
-    "uglifyjs": "^2.4.10"
+    "uglifyjs": "^2.4.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "scripts": {
-    "test": "node test/tangshi.js"
+    "test": "ts-node test/tangshi.spec.ts"
   },
   "repository": {
     "type": "git",

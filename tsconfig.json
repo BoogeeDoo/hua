@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "outDir": "dist"
+  },
+  "include": ["lib/**/*", "test/**/*", "hua.ts"],
+  "exclude": ["node_modules", "dist"]
+}
